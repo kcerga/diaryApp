@@ -16,12 +16,12 @@
         "source": "C:\\Users\\Kat\\.gradle\\caches\\transforms-2\\files-2.1\\16e34cc941ca560f1ce786850088f542\\material-1.0.0\\res\\layout\\design_navigation_item_separator.xml"
     },
     {
-        "merged": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\res\\merged\\debug\\drawable_add_diary.png.flat",
-        "source": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\src\\main\\res\\drawable\\add_diary.png"
-    },
-    {
         "merged": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_screen_simple.xml.flat",
         "source": "C:\\Users\\Kat\\.gradle\\caches\\transforms-2\\files-2.1\\5bf030364be1628a6f9f63ab6e371a98\\appcompat-1.0.2\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\res\\merged\\debug\\drawable_add_diary.png.flat",
+        "source": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\src\\main\\res\\drawable\\add_diary.png"
     },
     {
         "merged": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar.xml.flat",
@@ -58,6 +58,10 @@
     {
         "merged": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\res\\merged\\debug\\layout_singular_entry.xml.flat",
+        "source": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\src\\main\\res\\layout\\singular_entry.xml"
     },
     {
         "merged": "C:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_view.xml.flat",

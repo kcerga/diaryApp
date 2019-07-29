@@ -3,8 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.diarytest.mainActivity">
     <item
-        android:id="@+id/add_diary"
-        android:orderInCategory="100"
-        android:title="Add diary"
+        android:id="@+id/newFirst"
+        android:orderInCategory="1"
+        android:title="Sort by newest first"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/oldFirst"
+        android:orderInCategory="2"
+        android:title="Sort by oldest first"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/alphabetical"
+        android:orderInCategory="3"
+        android:title="Sort alphabetically"
         app:showAsAction="never" />
 </menu>

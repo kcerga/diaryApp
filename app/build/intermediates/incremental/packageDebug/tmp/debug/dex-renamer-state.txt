@@ -1,4 +1,4 @@
-#Wed Jul 17 16:26:47 EEST 2019
+#Mon Jul 29 13:51:28 EEST 2019
 base.0=C\:\\Users\\Kat\\AndroidStudioProjects\\diaryTest\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

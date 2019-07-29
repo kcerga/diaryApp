@@ -19,7 +19,7 @@ public class entryAdapter extends ArrayAdapter<Entry> {
 
     //Constructor
     public entryAdapter(Activity context, ArrayList<Entry> number) {
-        super(context, 0);
+        super(context, 0, number);
     }
 
     //Provides a view for an adapterview
@@ -47,6 +47,9 @@ public class entryAdapter extends ArrayAdapter<Entry> {
             TextView IDTextview = (TextView) listItemView.findViewById(R.id.diary_ID);
             // Set ID to the textview
             IDTextview.setText(currentEntry.getDiaryID());
+
+            //Hide ID for now
+            IDTextview.setVisibility(View.GONE);
 
 
             // Same thing for the diary date

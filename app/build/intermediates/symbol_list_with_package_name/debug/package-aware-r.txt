@@ -1051,9 +1051,9 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id add_diary
 id alertTitle
 id all
+id alphabetical
 id always
 id async
 id auto
@@ -1125,6 +1125,7 @@ id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
 id left
+id lin
 id line1
 id line3
 id list
@@ -1139,11 +1140,13 @@ id mtrl_internal_children_alpha_tag
 id multiply
 id navigation_header_container
 id never
+id newFirst
 id none
 id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id oldFirst
 id outline
 id packed
 id parallax
@@ -1226,6 +1229,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tv2
 id uniform
 id unlabeled
 id up
@@ -1311,6 +1315,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout singular_entry
 layout support_simple_spinner_dropdown_item
 menu menu_entry
 menu menu_main

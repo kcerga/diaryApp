@@ -7,11 +7,11 @@ package com.example.diarytest;
 public class Entry {
 
     private String diaryTitle;
-    private int diaryID;
+    private String diaryID;
     private String diaryDate;
 
     //Constructor that takes the ID, title and date of the diary entry
-    public Entry(int diaryID, String diaryTitle, String diaryDate) {
+    public Entry(String diaryID, String diaryTitle, String diaryDate) {
         this.diaryID = diaryID;
         this.diaryTitle = diaryTitle;
         this.diaryDate = diaryDate;
@@ -19,7 +19,7 @@ public class Entry {
     }
 
     //Return ID
-    public int getDiaryID() { return diaryID; }
+    public String getDiaryID() { return diaryID; }
 
     //Return title
     public String getDiaryTitle() { return diaryTitle; }

@@ -1,29 +1,31 @@
 package com.example.diarytest;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.Intent;
-
 import com.example.diarytest.data.diaryContract.diaryEntry;
 import com.example.diarytest.data.diaryDBhelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.TextView;
-
 import java.util.ArrayList;
+import static com.example.diarytest.data.diaryContract.diaryEntry.COLUMN_ID;
+import static com.example.diarytest.data.diaryContract.diaryEntry.COLUMN_TITLE;
 
 public class MainActivity extends AppCompatActivity {
 
     //A helper to access the database
     private diaryDBhelper myDBhelper = new diaryDBhelper(this);
+
+
+    //Default setting to sort diaries
+    private String orderDiaries = COLUMN_ID + " DESC";
 
 
     @Override
@@ -60,13 +62,14 @@ public class MainActivity extends AppCompatActivity {
     //Helper method to see that the rows we insert are actually going in the database. Call this method to see if it works
     private void displayInformation() {
 
+
         //Create or open DB and read from it
         SQLiteDatabase dbRead = myDBhelper.getReadableDatabase();
 
         //A string that contains all the columns we want to read from DB
         String [] project = {
-                diaryEntry.COLUMN_ID,
-                diaryEntry.COLUMN_TITLE,
+                COLUMN_ID,
+                COLUMN_TITLE,
                 diaryEntry.COLUMN_CONTENT,
                 diaryEntry.COLUMN_DATE
         };
@@ -79,41 +82,45 @@ public class MainActivity extends AppCompatActivity {
                 null,
                 null,
                 null,
-                null );
+                orderDiaries );
         try {
 
-            //Find the textview do display information, and get the count of the current rows in DB table
-            TextView displayView = (TextView) findViewById(R.id.list);
-            displayView.setText("Current rows: " +  cursor.getCount());
 
             //Get the index of each column
-            int IDindex = cursor.getColumnIndex(diaryEntry.COLUMN_ID);
-            int titleIndex = cursor.getColumnIndex(diaryEntry.COLUMN_TITLE);
+            int IDindex = cursor.getColumnIndex(COLUMN_ID);
+            int titleIndex = cursor.getColumnIndex(COLUMN_TITLE);
             int contextIndex = cursor.getColumnIndex(diaryEntry.COLUMN_CONTENT);
             int dateIndex = cursor.getColumnIndex(diaryEntry.COLUMN_DATE);
+
+            ArrayList<Entry> diaries = new ArrayList<Entry>();
 
             //Iterate through all the rows
             while (cursor.moveToNext()) {
 
-                //Using the index we took earlier, we can extract the speficic information in that column
-                int currentID = cursor.getInt(IDindex);
+                //Extract the speficic information in that column with the index
+                int integerID = cursor.getInt(IDindex);
+                //Convert ID to string for now
+                String currentID = new Integer(integerID).toString();
                 String currentTitle = cursor.getString(titleIndex);
-                String currentContent = cursor.getString(contextIndex);
                 String currentDate = cursor.getString(dateIndex);
 
-                //Append all the info to the displayView
-                displayView.append("\n" + currentTitle + "\n" + currentDate + "\n" + currentContent + "\n" );
 
+                diaries.add(new Entry(currentID, currentTitle, currentDate));
 
             }
+            entryAdapter diaryentries = new entryAdapter(this, diaries);
+
+            //ListView that will be display on the list
+            ListView listView = (ListView) findViewById(R.id.list);
+            listView.setAdapter(diaryentries);
+
+
         } finally {
-            // Always close the cursor when you're done reading from it. This releases all its
-            // resources and makes it invalid.
+            // Close the cursor
             cursor.close();
         }
 
     }
-
 
 
     @Override
@@ -124,12 +131,28 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+    //Menu items to sort how the entries will be displayed on the screen
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.add_diary:
-                //Do nothing yet
+            case R.id.newFirst:
+                //Sort by newest entry
+                orderDiaries = COLUMN_ID + " DESC";
+                displayInformation();
+                return true;
+
+            case R.id.oldFirst:
+                //Sort by oldest entry first
+                orderDiaries = COLUMN_ID + " ASC";
+                displayInformation();
+                return true;
+
+            case R.id.alphabetical:
+                //Sort alphabetically
+                orderDiaries = COLUMN_TITLE + " ASC";
+                displayInformation();
                 return true;
 
         }
@@ -139,17 +162,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-/**
- *
- * FOR VIEW RECYCLLING
- *
- * ArrayList<Entry> diaries = new ArrayList<Entry>();
-
- entryAdapter diaryentries = new entryAdapter(this, diaries);
-
- //ListView that will be display on the @list
- ListView listView = (ListView) findViewById(R.id.list);
-
- diaries.add(new Entry(currentID, currentTitle, currentDate));
- //Makes the created listview to use the adapter, so the list will display the list items.
- listView.setAdapter(diaryentries);**/

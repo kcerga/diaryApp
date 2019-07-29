@@ -9,14 +9,6 @@
     android:minHeight="88dp"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/diary_ID"
-        android:textColor="@color/colorPrimaryDark"
-        android:gravity="bottom"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
-
 
     <!-- LinearView for the texts -->
     <LinearLayout
@@ -27,14 +19,22 @@
         android:paddingLeft="16dp">
 
         <TextView
+            android:id="@+id/diary_ID"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            />
+
+        <TextView
             android:id="@+id/diary_title"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_marginLeft="10dp"
-            android:gravity="bottom"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             />
 
@@ -43,12 +43,9 @@
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginLeft="10dp"
             android:id="@+id/diary_date"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="top"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             />
-
 
     </LinearLayout>
 
